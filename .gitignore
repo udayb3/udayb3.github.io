@@ -1,0 +1,6 @@
+# Ignoring the test files and folder
+test/**/*
+test.*
+*/**/test.*
+*/**/test/
+

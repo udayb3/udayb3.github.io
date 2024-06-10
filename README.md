@@ -1,1 +1,1 @@
-# This site is for rendering the github page.
+## This is the github.io for rendering Static sites.

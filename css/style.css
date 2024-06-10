@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(245,208,78);
+}
+.card {
+  color: rgb(17,17,17);
+  background-color: white;
+  width: 25%;
+  position:absolute;
+  border-radius: 10px;
+}
