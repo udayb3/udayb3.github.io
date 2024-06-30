@@ -5,12 +5,11 @@ const cells = document.getElementsByClassName("cell");
 const msg = document.getElementById("msg");
 const restartbtn= document.getElementById
 const players = ["X", "O"];
-let NotFin=true;
-
-let cur = 0; let coun=0
 real_board= [ [-1, -1, -1], [ -1, -1, -1], [ -1, -1 , -1] ]
 
-// // add event listeners to each cell
+let NotFin=true;
+let cur = 0; let coun=0
+
 function handleCellClick( event ) {
 
   tar= event.target; id_= parseInt( (event.target.id)[4] )
@@ -18,10 +17,10 @@ function handleCellClick( event ) {
 
   if( NotFin && ( real_board[ i ][ j ] ) == -1  ){
 
-    tar.innerHTML ="<h1>"+players[cur] +"</h1>";
+    tar.innerHTML ="<h1 class=\"unselectable\">"+players[cur] +"</h1>";
     real_board[ i ][ j ]= cur;
-
     coun++;
+    
     if( checkWin( cur ) ){
       msg.innerHTML= players[cur]+" won the game. Play again by clicking restart"; NotFin= false;
     }
@@ -30,18 +29,10 @@ function handleCellClick( event ) {
     }
     else{
       cur= cur==0?1:0;
-      msg.innerHTML=players[cur]+"'s turn"
+      msg.innerHTML=players[cur]+"'s turn!"
     }
   }
 }
-
-let i=0
-for( i=0;i< cells.length; i++){
-  cells[i].addEventListener("click", handleCellClick )
-}
-
-
-// SubTask2
 
 function checkWin( current ) {
   let chdl= true, chdr= true;
@@ -53,7 +44,6 @@ function checkWin( current ) {
       if( current != real_board[ i][ j ] ){
         ch1= false;
       }
-
       if( current != real_board[ j][i] ){
         ch2= false;
       }
@@ -73,12 +63,12 @@ function checkWin( current ) {
   return false;
 }
 
-// SubTask3
+// Function to restart
 function restart() {
 
   cur=0;
   real_board= [ [-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
-  msg.innerHTML= "X's turn";
+  msg.innerHTML= "X's turn!";
   NotFin= true;
   coun=0; 
 
@@ -87,3 +77,10 @@ function restart() {
   }
 
   }
+
+// Adding Event listener to each cell
+let i=0
+for( i=0;i< cells.length; i++){
+  cells[i].addEventListener("click", handleCellClick )
+}
+
