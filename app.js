@@ -78,7 +78,9 @@ function restart() {
 
   cur=0;
   real_board= [ [-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
-  msg.innerHTML= "X's turn"
+  msg.innerHTML= "X's turn";
+  NotFin= true;
+  coun=0; 
 
   for( let i=0; i<cells.length; i++ ){
     cells[i].innerHTML= "";
